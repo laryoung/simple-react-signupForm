@@ -11,12 +11,13 @@ import {
   colors,
 } from "../components/Style";
 
-function Dashboard() {
+function Dashboard(props) {
   const history = useHistory();
+
   return (
     <div>
       <StyledFormArea bg={colors.dark2}>
-        <StyledTitle size={65}>Welcome , User</StyledTitle>
+        <StyledTitle size={65}>Welcome , {props.user.name}</StyledTitle>
 
         <ButtonGroup>
           <StyledButton to="#" onClick={() => logOut(history)}>
@@ -27,5 +28,7 @@ function Dashboard() {
     </div>
   );
 }
-
-export default connect(null, { logOut })(Dashboard);
+const mapStateToProps = ({ session }) => ({
+  user: session.user,
+});
+export default connect(mapStateToProps, { logOut })(Dashboard);

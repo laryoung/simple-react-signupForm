@@ -70,7 +70,7 @@ function CreateAccount() {
                 icon={<FiMail />}
               />
               <TextInput
-                name="date"
+                name="dateOfBirth"
                 type="date"
                 label="Date of Birth"
                 icon={<FiCalendar />}
@@ -91,7 +91,9 @@ function CreateAccount() {
               />
               <ButtonGroup>
                 {!isSubmitting && (
-                  <StyledFormButton type="submit">Login</StyledFormButton>
+                  <StyledFormButton type="submit">
+                    Create Account
+                  </StyledFormButton>
                 )}
                 {isSubmitting && (
                   <Loader
@@ -106,7 +108,7 @@ function CreateAccount() {
           )}
         </Formik>
         <ExtraText>
-          Already have an account? <TextLink to="/signin">Sign In</TextLink>
+          Already have an account? <TextLink to="/login">Sign In</TextLink>
         </ExtraText>
       </StyledFormArea>
       <CopyrightText>All right reserverd &copy;2021</CopyrightText>
